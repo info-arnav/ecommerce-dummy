@@ -1,5 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { cookies } from "next/headers";
+import Button from "./logout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,9 +12,106 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const userCokkie = cookieStore.get("user");
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "white",
+            position: "sticky",
+            top: 0,
+            borderBottom: "solid black",
+            height: 50,
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+              textDecoration: "none",
+              fontWeight: "bold",
+              color: "black",
+            }}
+          >
+            Aditi Gupta's Ecommerce Site
+          </Link>
+          <div style={{ flex: 1, textAlign: "right" }}>
+            {userCokkie ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "right",
+                  flex: 1,
+                }}
+              >
+                <Link
+                  href="/cart"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    color: "black",
+                    border: "solid black",
+                    borderRadius: 20,
+                    padding: 5,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                  }}
+                >
+                  Cart
+                </Link>
+                <Button></Button>
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "right",
+                  flex: 1,
+                }}
+              >
+                <Link
+                  href="/login"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    color: "black",
+                    border: "solid black",
+                    borderRadius: 20,
+                    padding: 5,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                  }}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  style={{
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                    color: "black",
+                    border: "solid black",
+                    borderRadius: 20,
+                    padding: 5,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    marginLeft: 10,
+                  }}
+                >
+                  Register
+                </Link>
+              </div>
+            )}
+          </div>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
