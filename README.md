@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aditi Ecommerce App
 
-## Getting Started
+Yo, so first how to set up
 
-First, run the development server:
+## Setup
 
-```bash
+```
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+this starts a frontend application at localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+U have to start ur application on another terminal now
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Message
 
-## Learn More
+So now we will be going forward parallely, ill write tasks here and both me and you will proceed to do the tasks in the order respectively.
 
-To learn more about Next.js, take a look at the following resources:
+It's like, if you do the backend correctly and open the site and perform that function; the website should work perfectly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Also for sure, u will face issues in some parts and ik which ones ig, but we have done it so j refer to old docs fs; and if u face probs, dont get demotivated. It is quite natural even after making tons of apps.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Basic Requirments
 
-## Deploy on Vercel
+- file name index.js
+- folder aditisServer
+- add a script named lessgo which started the application
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm run lessgo
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- now the port to listen to is 5000
+- Ill be sending reqquests from port 3000 -> provided this for a reason 😁
+
+## Program
+
+- api/login
+
+  - Post Req
+  - the data i send is {email, password, confirmPassword, phone}
+  - check if password and confirmPassword match
+  - check if email is not already registered on the website
+  - if both these are true, then as a response send {loggedIn: true}
+  - else send {loggedIn: false, message:message}
+  - the message if already registered should be "already registered"; and if pasword dont match then "not matching"
+
+- api/register
+  - Post Req
+  - the data i send is {email, password}
+  - check if user in database
+  - match password
+  - if both these are true, then as a response send {loggedIn: true}
+  - else send {loggedIn: false, message:message}
+  - the message if not registered should be "not registered"; and if pasword dont match then "wrong pass"
