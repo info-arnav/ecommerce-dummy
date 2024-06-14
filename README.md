@@ -34,6 +34,32 @@ npm run lessgo
 - now the port to listen to is 5000
 - Ill be sending reqquests from port 3000 -> provided this for a reason 😁
 
+## MongoDB
+
+in this u will need to insert, find and update data. Maybe work with arrays.
+
+It is really easy but what u need is a documentation to refer to.
+
+Here it is
+
+main one - https://www.mongodb.com/docs/manual/reference/command/nav-crud/
+
+u can use this too - https://www.mongodb.com/docs/drivers/node/current/usage-examples/replaceOne/
+
+THIS IS IMP, THIS IS FOR ARRAYS U WILL NEED THIS - https://www.mongodb.com/docs/manual/reference/operator/update-array/
+
+## Cors
+
+Cross-origin resource sharing (CORS) is an extension of the same-origin policy. You need it for authorized resource sharing with external third parties. For example, you need CORS when you want to pull data from external APIs that are public or authorized. You also need CORS if you want to allow authorized third-party access to your own server resources.
+
+IN SHORT, when u are excahnging data between to diff domains, so be sure if u need to use this or not 😁😁
+
+## General
+
+StackOverFlow - https://stackoverflow.com/
+
+the qora for programing.
+
 ## Program
 
 - api/login
