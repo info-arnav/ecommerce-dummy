@@ -105,12 +105,22 @@ Handle errors properly, mongoDB collections and structures upto u.
   - Post req
   - the data i send is {id, name}
   - name here is the email of the user
+  - add the item to cart, in whatever way u find good
   - return me either {error:true} or {error:false}
   - also write a message
 
 - api/cart
+
   - Post req
   - the data i send is {name}
   - name is the email
   - return an array of items in cart
   - [{title, description, id}, {title, description, id} ...]
+
+- api/remove
+  - Post req
+  - the data i send is {id, name}
+  - name here is the email of the user
+  - remove the item to cart, in whatever way u find good
+  - return me either {error:true} or {error:false}
+  - also write a message
