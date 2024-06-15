@@ -1,39 +1,33 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
 
-async function getProducts() {
+async function getProducts(name) {
   let data;
   try {
-    data = await fetch(`${process.env.SERVER}/api/products`, {
+    data = await fetch(`${process.env.SERVER}/api/cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ name: name }),
     }).then((e) => {
       return e.json();
     });
   } catch (err) {
-    data = [];
+    data = {};
   }
   return data;
 }
 
-export default async function Home() {
+export default async function Home({ params }) {
   const cookieStore = cookies();
   const userCokkie = cookieStore.get("user");
-  const data = await getProducts();
+  const data = await getProducts(userCokkie?.value);
   return (
     <main style={{ marginTop: 10 }}>
-      {userCokkie ? (
-        <>
-          <p>Logged in as -</p>
-          <p>Name: {userCokkie?.name}</p>
-          <p>Value: {userCokkie?.value}</p>
-        </>
-      ) : (
-        "Not Logged in"
-      )}
-      <div style={{ marginTop: 50, marginBottom: 50 }}>Products : </div>
+      <div style={{ marginTop: 50, marginBottom: 50 }}>
+        Cart Product Details :{" "}
+      </div>
       <div
         style={{
           display: "flex",

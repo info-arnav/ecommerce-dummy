@@ -62,6 +62,8 @@ the qora for programing.
 
 ## Program
 
+Handle errors properly, mongoDB collections and structures upto u.
+
 - api/login
 
   - Post Req
@@ -73,6 +75,7 @@ the qora for programing.
   - the message if already registered should be "already registered"; and if pasword dont match then "not matching"
 
 - api/register
+
   - Post Req
   - the data i send is {email, password}
   - check if user in database
@@ -80,3 +83,34 @@ the qora for programing.
   - if both these are true, then as a response send {loggedIn: true}
   - else send {loggedIn: false, message:message}
   - the message if not registered should be "not registered"; and if pasword dont match then "wrong pass"
+
+- api/products
+
+  - Post req
+  - the data i send is {}
+  - send me a list of all items
+  - [{title, description, id}, {title, description, id} ...]
+  - id is a unique product id, u may use dummy data to return this
+
+- api/product
+
+  - Post req
+  - the data i send is {id}
+  - send me a dictionary with the item details
+  - {title, description, id}
+  - if error send me a dict with {error : true}
+
+- api/add
+
+  - Post req
+  - the data i send is {id, name}
+  - name here is the email of the user
+  - return me either {error:true} or {error:false}
+  - also write a message
+
+- api/cart
+  - Post req
+  - the data i send is {name}
+  - name is the email
+  - return an array of items in cart
+  - [{title, description, id}, {title, description, id} ...]

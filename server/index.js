@@ -24,7 +24,31 @@ app.post("/api/login", async (req, res) => {
 
 app.post("/api/products", async (req, res) => {
   let data = req.body;
-  res.send({ a: 1, loggedIn: true });
+  res.send([
+    { title: "title 1", description: "description 1", id: 101 },
+    { title: "title 2", description: "description 2", id: 102 },
+  ]);
+});
+
+app.post("/api/cart", async (req, res) => {
+  let data = req.body;
+  res.send([
+    { title: "title 1", description: "description 1", id: 101 },
+    { title: "title 2", description: "description 2", id: 102 },
+  ]);
+});
+
+app.post("/api/add", async (req, res) => {
+  let data = req.body;
+  console.log(data);
+  res.send([
+    { title: "title 1", description: "description 1", id: 101 },
+    { title: "title 2", description: "description 2", id: 102 },
+  ]);
+});
+
+app.post("/api/product", async (req, res) => {
+  res.send({ title: "title 1", description: "description 1", id: req.body.id });
 });
 
 app.listen(5000, () => {
