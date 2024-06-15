@@ -84,6 +84,11 @@ app.post("/api/product", async (req, res) => {
   res.send({ title: "title 1", description: "description 1", id: req.body.id });
 });
 
+app.get("/image", (req, res) => {
+  res.set({ "Content-Type": "image/png " });
+  res.send("");
+});
+
 app.listen(5000, () => {
   console.log("started");
 });

@@ -110,7 +110,8 @@ when this is used to login, the admin side is unlocked.
 
 - api/image/id
 
-  - sends a response of time png, jpg, etc
+  - method get
+  - sends a response of type png, jpg, etc
   - this should return the image of product with id = id
 
 - api/add
