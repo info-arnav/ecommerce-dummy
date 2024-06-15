@@ -64,6 +64,24 @@ export default function RootLayout({ children }) {
                 >
                   Cart
                 </Link>
+                {userCokkie.value == "info@aditi-gupta.co.in" && (
+                  <Link
+                    href="/admin"
+                    style={{
+                      textDecoration: "none",
+                      fontWeight: "bold",
+                      color: "black",
+                      marginLeft: 10,
+                      border: "solid black",
+                      borderRadius: 20,
+                      padding: 5,
+                      paddingLeft: 20,
+                      paddingRight: 20,
+                    }}
+                  >
+                    Admin
+                  </Link>
+                )}
                 <Button></Button>
               </div>
             ) : (

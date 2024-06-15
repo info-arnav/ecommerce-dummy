@@ -43,6 +43,7 @@ export default async function Home({ params }) {
             marginBottom: 20,
           }}
         >
+          <img src={`${process.env.SERVER}/api/image/${data.id}`}></img>
           <div>{data.id}</div>
           <div>{data.title}</div>
           <div>{data.description}</div>

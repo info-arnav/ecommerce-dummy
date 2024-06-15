@@ -32,7 +32,7 @@ npm run lessgo
 ```
 
 - now the port to listen to is 5000
-- Ill be sending reqquests from port 3000 -> provided this for a reason 😁
+- Ill be sending requests from port 3000 -> provided this for a reason 😁
 
 ## MongoDB
 
@@ -64,6 +64,14 @@ the qora for programing.
 
 Handle errors properly, mongoDB collections and structures upto u.
 
+create a manual user:
+
+email : info@aditi-gupta.co.in
+password : Aditi@110904
+type : admin
+
+when this is used to login, the admin side is unlocked.
+
 - api/login
 
   - Post Req
@@ -89,7 +97,7 @@ Handle errors properly, mongoDB collections and structures upto u.
   - Post req
   - the data i send is {}
   - send me a list of all items
-  - [{title, description, id}, {title, description, id} ...]
+  - [{title, description, id, image}, {title, description, id, image} ...]
   - id is a unique product id, u may use dummy data to return this
 
 - api/product
@@ -97,8 +105,13 @@ Handle errors properly, mongoDB collections and structures upto u.
   - Post req
   - the data i send is {id}
   - send me a dictionary with the item details
-  - {title, description, id}
+  - {title, description, id, image}
   - if error send me a dict with {error : true}
+
+- api/image/id
+
+  - sends a response of time png, jpg, etc
+  - this should return the image of product with id = id
 
 - api/add
 
@@ -115,12 +128,32 @@ Handle errors properly, mongoDB collections and structures upto u.
   - the data i send is {name}
   - name is the email
   - return an array of items in cart
-  - [{title, description, id}, {title, description, id} ...]
+  - [{title, description, id, image}, {title, description, id, image} ...]
 
 - api/remove
+
   - Post req
   - the data i send is {id, name}
   - name here is the email of the user
   - remove the item to cart, in whatever way u find good
   - return me either {error:true} or {error:false}
   - also write a message
+
+- api/delete
+
+  - Post req
+  - the data i send is {id, name}
+  - name here is the email of the user
+  - if the user type is admin then proceed
+  - remove the item to cart, in whatever way u find good
+  - return me either {error:true} or {error:false}
+  - also write a message
+
+- api/create
+
+  - Post Req
+  - multer is needed
+  - limit for body-parser and multer should be 50mb
+  - if the user type is admin then proceed
+  - {description, title} is req.body
+  - image is in req.files
