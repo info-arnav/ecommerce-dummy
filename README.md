@@ -72,16 +72,6 @@ type : admin
 
 when this is used to login, the admin side is unlocked.
 
-- api/login
-
-  - Post Req
-  - the data i send is {email, password, confirmPassword, phone}
-  - check if password and confirmPassword match
-  - check if email is not already registered on the website
-  - if both these are true, then as a response send {loggedIn: true}
-  - else send {loggedIn: false, message:message}
-  - the message if already registered should be "already registered"; and if pasword dont match then "not matching"
-
 - api/register
 
   - Post Req
@@ -92,6 +82,35 @@ when this is used to login, the admin side is unlocked.
   - else send {loggedIn: false, message:message}
   - the message if not registered should be "not registered"; and if pasword dont match then "wrong pass"
 
+- api/login
+
+  - Post Req
+  - the data i send is {email, password, confirmPassword, phone}
+  - check if password and confirmPassword match
+  - check if email is not already registered on the website
+  - if both these are true, then as a response send {loggedIn: true}
+  - else send {loggedIn: false, message:message}
+  - the message if already registered should be "already registered"; and if pasword dont match then "not matching"
+
+- api/create
+
+  - Post Req
+  - multer is needed
+  - limit for body-parser and multer should be 50mb
+  - if the user type is admin then proceed
+  - {description, title} is req.body
+  - image is in req.files
+
+- api/delete
+
+  - Post req
+  - the data i send is {id, name}
+  - name here is the email of the user
+  - if the user type is admin then proceed
+  - remove the item to cart, in whatever way u find good
+  - return me either {error:true} or {error:false}
+  - also write a message
+
 - api/products
 
   - Post req
@@ -100,6 +119,12 @@ when this is used to login, the admin side is unlocked.
   - [{title, description, id, image}, {title, description, id, image} ...]
   - id is a unique product id, u may use dummy data to return this
 
+- api/image/id
+
+  - method get
+  - sends a response of type png, jpg, etc
+  - this should return the image of product with id = id
+
 - api/product
 
   - Post req
@@ -107,12 +132,6 @@ when this is used to login, the admin side is unlocked.
   - send me a dictionary with the item details
   - {title, description, id, image}
   - if error send me a dict with {error : true}
-
-- api/image/id
-
-  - method get
-  - sends a response of type png, jpg, etc
-  - this should return the image of product with id = id
 
 - api/add
 
@@ -139,22 +158,3 @@ when this is used to login, the admin side is unlocked.
   - remove the item to cart, in whatever way u find good
   - return me either {error:true} or {error:false}
   - also write a message
-
-- api/delete
-
-  - Post req
-  - the data i send is {id, name}
-  - name here is the email of the user
-  - if the user type is admin then proceed
-  - remove the item to cart, in whatever way u find good
-  - return me either {error:true} or {error:false}
-  - also write a message
-
-- api/create
-
-  - Post Req
-  - multer is needed
-  - limit for body-parser and multer should be 50mb
-  - if the user type is admin then proceed
-  - {description, title} is req.body
-  - image is in req.files
